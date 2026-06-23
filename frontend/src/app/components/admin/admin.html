@@ -1,0 +1,180 @@
+<div class="container mt-4">
+
+  <h2 class="mb-4">Admin Product Management</h2>
+
+  <div class="card p-4 mb-4">
+
+    <div class="mb-3">
+      <label class="form-label">Product Name</label>
+      <input
+        type="text"
+        name="productName"
+        class="form-control"
+        [(ngModel)]="product.name">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea
+        rows="3"
+        name="description"
+        class="form-control"
+        [(ngModel)]="product.description">
+      </textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image URL</label>
+      <input
+        type="text"
+        name="imageUrl"
+        class="form-control"
+        [(ngModel)]="product.imageUrl">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <select
+        name="category"
+        class="form-select"
+        [(ngModel)]="selectedCategory">
+
+        <option value="BIRTHDAY">BIRTHDAY</option>
+        <option value="LOVE">LOVE</option>
+        <option value="MARRIAGE">MARRIAGE</option>
+        <option value="GRAND_OPENING">GRAND_OPENING</option>
+        <option value="SYMPATHY">SYMPATHY</option>
+        <option value="GET_WELL_SOON">GET_WELL_SOON</option>
+
+      </select>
+    </div>
+
+    <div class="form-check">
+      <input
+        type="checkbox"
+        name="bestSelling"
+        class="form-check-input"
+        [(ngModel)]="product.bestSelling">
+
+      <label class="form-check-label">
+        Best Selling
+      </label>
+    </div>
+
+    <div class="form-check mb-3">
+      <input
+        type="checkbox"
+        name="newArrival"
+        class="form-check-input"
+        [(ngModel)]="product.newArrival">
+
+      <label class="form-check-label">
+        New Arrival
+      </label>
+    </div>
+
+    <h5 class="mt-3">Prices</h5>
+
+    <div
+      *ngFor="let size of product.sizes; let i=index"
+      class="mb-3">
+
+      <label class="form-label">
+        {{size.size}}
+      </label>
+
+      <input
+        type="number"
+        class="form-control"
+        [name]="'price'+i"
+        [(ngModel)]="size.price">
+
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="saveProduct()">
+
+      {{ editMode ? 'Update Product' : 'Add Product' }}
+
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-secondary ms-2"
+      (click)="resetForm()">
+
+      Clear
+
+    </button>
+
+  </div>
+
+  <h3 class="mb-3">Existing Products</h3>
+
+  <table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+
+      <tr>
+
+        <th>ID</th>
+
+        <th>Name</th>
+
+        <th>Image</th>
+
+        <th>Category</th>
+
+        <th>Actions</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let p of products">
+
+        <td>{{p.id}}</td>
+
+        <td>{{p.name}}</td>
+
+        <td>
+          <img
+            [src]="p.imageUrl"
+            width="100">
+        </td>
+
+        <td>{{p.categories?.join(', ')}}</td>
+
+        <td>
+
+          <button
+            type="button"
+            class="btn btn-primary btn-sm me-2"
+            (click)="editProduct(p)">
+
+            Edit
+
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            (click)="deleteProduct(p.id)">
+
+            Delete
+
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

@@ -1,0 +1,57 @@
+<div class="container mt-4">
+
+  <h2>Checkout</h2>
+
+  <div class="card p-4">
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Delivery Address
+      </label>
+
+      <textarea
+        rows="5"
+        class="form-control"
+        [(ngModel)]="deliveryAddress">
+      </textarea>
+
+    </div>
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Payment Mode
+      </label>
+
+      <select
+        class="form-select"
+        [(ngModel)]="paymentMode">
+
+        <option value="COD">
+          Cash On Delivery
+        </option>
+
+        <option value="UPI">
+          UPI
+        </option>
+
+        <option value="CARD">
+          Card
+        </option>
+
+      </select>
+
+    </div>
+
+    <button
+      class="btn btn-success"
+      (click)="placeOrder()">
+
+      Place Order
+
+    </button>
+
+  </div>
+
+</div>

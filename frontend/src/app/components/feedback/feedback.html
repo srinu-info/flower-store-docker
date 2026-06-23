@@ -1,0 +1,121 @@
+<div class="container mt-4">
+
+  <h2>
+    Customer Feedback
+  </h2>
+
+  <div
+    class="alert alert-success"
+    *ngIf="successMessage">
+
+    {{successMessage}}
+
+  </div>
+
+  <div class="card p-4 mb-4">
+
+    <div class="mb-3">
+
+      <label class="form-label">
+
+        Rating
+
+      </label>
+
+      <select
+        class="form-select"
+        [(ngModel)]="rating">
+
+        <option [value]="5">
+          ⭐⭐⭐⭐⭐ (5)
+        </option>
+
+        <option [value]="4">
+          ⭐⭐⭐⭐ (4)
+        </option>
+
+        <option [value]="3">
+          ⭐⭐⭐ (3)
+        </option>
+
+        <option [value]="2">
+          ⭐⭐ (2)
+        </option>
+
+        <option [value]="1">
+          ⭐ (1)
+        </option>
+
+      </select>
+
+    </div>
+
+    <div class="mb-3">
+
+      <label class="form-label">
+
+        Message
+
+      </label>
+
+      <textarea
+        rows="4"
+        class="form-control"
+        [(ngModel)]="message">
+
+      </textarea>
+
+    </div>
+
+    <button
+      class="btn btn-primary"
+      (click)="submitFeedback()">
+
+      Submit Review
+
+    </button>
+
+  </div>
+
+  <hr>
+
+<h4 class="mt-4">
+  Customer Reviews
+</h4>
+
+<div
+  class="card mb-3"
+  *ngFor="let review of reviews">
+
+  <div class="card-body">
+
+    <h6 class="mb-2">
+
+      {{review.email}}
+
+    </h6>
+
+    <p class="text-warning">
+
+      Rating :
+      ⭐ {{review.rating}} / 5
+
+    </p>
+
+    <p>
+
+      {{review.reviewMessage}}
+
+    </p>
+
+    <small class="text-muted">
+
+      {{review.createdAt}}
+
+    </small>
+
+  </div>
+
+</div>
+
+</div>

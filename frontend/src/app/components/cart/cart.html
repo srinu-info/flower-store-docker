@@ -1,0 +1,139 @@
+<div class="container mt-4">
+
+  <h2>Your Cart</h2>
+
+  <div
+    class="alert alert-success"
+    *ngIf="successMessage">
+
+    {{successMessage}}
+
+  </div>
+
+  <div
+    class="alert alert-info"
+    *ngIf="cartItems && cartItems.length===0">
+
+    Cart Is Empty
+
+  </div>
+
+  <table
+    class="table table-bordered"
+    *ngIf="cartItems && cartItems.length>0">
+
+    <thead>
+
+      <tr>
+
+        <th>Image</th>
+        <th>Product</th>
+        <th>Size</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+        <th>Action</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr
+        *ngFor="let item of cartItems">
+
+        <td>
+
+          <img
+            [src]="item.imageUrl"
+            width="80">
+
+        </td>
+
+        <td>
+
+          {{item.productName}}
+
+        </td>
+
+        <td>
+
+          {{item.size}}
+
+        </td>
+
+        <td>
+
+          <button
+            class="btn btn-sm btn-secondary me-2"
+            (click)="decreaseQty(item)">
+
+            -
+
+          </button>
+
+          {{item.quantity}}
+
+          <button
+            class="btn btn-sm btn-secondary ms-2"
+            (click)="increaseQty(item)">
+
+            +
+
+          </button>
+
+        </td>
+
+        <td>
+
+          ₹{{item.price}}
+
+        </td>
+
+        <td>
+
+          ₹{{item.subtotal}}
+
+        </td>
+
+        <td>
+
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteItem(item.id)">
+
+            Delete
+
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <div
+    class="text-end mt-4"
+    *ngIf="cartItems.length>0">
+
+    <h4>
+
+      Grand Total :
+      ₹{{grandTotal}}
+
+    </h4>
+
+    <button
+      class="btn btn-success"
+      routerLink="/checkout">
+
+      Proceed To Checkout
+
+    </button>
+
+  </div>
+
+</div>

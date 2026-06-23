@@ -1,0 +1,123 @@
+<div class="container mt-4">
+
+  <h2>My Orders</h2>
+    <p>Total Orders: {{orders.length}}</p>
+
+  <div
+    class="alert alert-info"
+    *ngIf="orders.length === 0">
+
+    No Orders Found
+
+  </div>
+
+  <div
+    class="card mb-3"
+    *ngFor="let order of orders">
+
+    <div class="card-body">
+
+      <h5>
+
+        Order #{{order.orderId}}
+
+      </h5>
+
+      <p>
+
+        <strong>Status:</strong>
+
+        {{order.status}}
+
+      </p>
+
+      <p>
+
+        <strong>Order Date:</strong>
+
+        {{order.orderDate}}
+
+      </p>
+
+      <p>
+
+        <strong>Total Amount:</strong>
+
+        ₹{{order.totalAmount}}
+
+      </p>
+
+      <hr>
+
+      <h6>Items</h6>
+
+      <table class="table table-bordered">
+
+        <thead>
+
+          <tr>
+
+            <th>Image</th>
+            <th>Product</th>
+            <th>Size</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let item of order.items">
+
+            <td>
+
+              <img
+                [src]="item.imageUrl"
+                width="70">
+
+            </td>
+
+            <td>
+
+              {{item.productName}}
+
+            </td>
+
+            <td>
+
+              {{item.size}}
+
+            </td>
+
+            <td>
+
+              {{item.quantity}}
+
+            </td>
+
+            <td>
+
+              ₹{{item.price}}
+
+            </td>
+
+            <td>
+
+              ₹{{item.subtotal}}
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

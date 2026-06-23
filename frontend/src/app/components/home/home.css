@@ -1,0 +1,22 @@
+.hero-section{
+
+  text-align:center;
+
+  padding:80px;
+
+  background:#f8f9fa;
+
+  border-radius:10px;
+
+  margin:20px;
+}
+
+.hero-section h1{
+
+  font-size:48px;
+}
+
+.hero-section p{
+
+  font-size:20px;
+}
