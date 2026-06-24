@@ -1,8 +1,13 @@
 FROM node:22
+
 WORKDIR /opt/server
-COPY *.json .
+
+COPY package*.json ./
+
 RUN npm install
-COPY src /opt/server/src
-COPY environments /opt/server/environments
+
+COPY . .
+
 EXPOSE 4200
-CMD ["npm","start"]
+
+CMD ["npm", "start"]
