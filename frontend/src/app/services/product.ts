@@ -10,7 +10,7 @@ export class ProductService {
 
   private http = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:8080/products';
+  private apiUrl = 'http://174.129.112.40:8080/products';
 
   getAllProducts(): Observable<Product[]> {
 
