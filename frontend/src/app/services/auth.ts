@@ -15,7 +15,7 @@ export class AuthService {
   login(data: any) {
 
     return this.http.post<any>(
-      `${environment.apiUrl}/auth/login`,
+      'http://174.129.112.40:8080/auth/login',
       data
     ).pipe(
       tap(response => {
@@ -38,7 +38,7 @@ export class AuthService {
   register(data:any){
 
   return this.http.post(
-     `${environment.apiUrl}/auth/register`,
+     'http://174.129.112.40:8080/auth/register',
     data,
     {
       responseType: 'text'
