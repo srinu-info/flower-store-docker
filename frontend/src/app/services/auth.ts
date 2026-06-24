@@ -1,118 +1,70 @@
-// import { Injectable } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import { tap } from 'rxjs/operators';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthService {
-
-//   constructor(
-//     private http: HttpClient
-//   ) { }
-
-//   login(data: any) {
-
-//     return this.http.post<any>(
-//       'http://localhost:8080/auth/login',
-//       data
-//     ).pipe(
-//       tap(response => {
-
-//         localStorage.setItem(
-//           'token',
-//           response.token
-//         );
-
-//         localStorage.setItem(
-//           'email',
-//           response.email
-//         );
-
-//       })
-//     );
-
-//   }
-
-//   register(data:any){
-
-//   return this.http.post(
-//     'http://localhost:8080/auth/register',
-//     data,
-//     {
-//       responseType: 'text'
-//     }
-//   );
-
-// }
-
-//   getToken(): string | null {
-
-//     return localStorage.getItem('token');
-
-//   }
-
-//   logout() {
-
-//     localStorage.removeItem('token');
-//     localStorage.removeItem('email');
-
-//   }
-
-//   isLoggedIn(): boolean {
-
-//     return !!localStorage.getItem('token');
-
-//   }
-
-// }
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) { }
 
   login(data: any) {
 
     return this.http.post<any>(
-      `${environment.apiUrl}/auth/login`,
+      `${environment.apiUrl}/auth/register`,
       data
     ).pipe(
       tap(response => {
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('email', response.email);
+
+        localStorage.setItem(
+          'token',
+          response.token
+        );
+
+        localStorage.setItem(
+          'email',
+          response.email
+        );
+
       })
     );
+
   }
 
-  register(data: any) {
+  register(data:any){
 
-    return this.http.post(
-      `${environment.apiUrl}/auth/register`,
-      data,
-      {
-        responseType: 'text'
-      }
-    );
-  }
+  return this.http.post(
+    `${environment.apiUrl}/auth/register`,
+    data,
+    {
+      responseType: 'text'
+    }
+  );
+
+}
 
   getToken(): string | null {
+
     return localStorage.getItem('token');
+
   }
 
   logout() {
+
     localStorage.removeItem('token');
     localStorage.removeItem('email');
+
   }
 
   isLoggedIn(): boolean {
+
     return !!localStorage.getItem('token');
+
   }
+
 }
+
