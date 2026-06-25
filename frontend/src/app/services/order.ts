@@ -12,7 +12,7 @@ export class OrderService {
   private http = inject(HttpClient);
 
   private apiUrl =
-    'http://100.31.238.92/orders';
+    'http://100.31.238.92:8080/orders';
 
   placeOrder(payload:any){
 

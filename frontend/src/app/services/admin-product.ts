@@ -9,12 +9,12 @@ export class AdminProductService {
   private http = inject(HttpClient);
 
   private apiUrl =
-    'http://100.31.238.92/admin/products';
+    'http://100.31.238.92:8080/admin/products';
 
   getProducts() {
 
     return this.http.get<any[]>(
-      'http://100.31.238.92/products'
+      'http://100.31.238.92:8080/products'
     );
 
   }
