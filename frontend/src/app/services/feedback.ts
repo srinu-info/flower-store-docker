@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn:'root'
@@ -7,9 +8,10 @@ import { HttpClient } from '@angular/common/http';
 export class FeedbackService {
 
   private http = inject(HttpClient);
+  private api = environment.apiUrl;
 
   private apiUrl =
-    'http://100.31.238.92:8080/feedback';
+    `${this.api}/feedback`;
 
   submitFeedback(payload:any){
 

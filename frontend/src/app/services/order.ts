@@ -3,6 +3,7 @@ import {
   HttpClient,
   HttpHeaders
 } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn:'root'
@@ -10,9 +11,10 @@ import {
 export class OrderService {
 
   private http = inject(HttpClient);
+  private api = environment.apiUrl;
 
   private apiUrl =
-    'http://100.31.238.92:8080/orders';
+    `${this.api}/orders`;
 
   placeOrder(payload:any){
 

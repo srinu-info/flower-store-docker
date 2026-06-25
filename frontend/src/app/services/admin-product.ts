@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
 export class AdminProductService {
 
   private http = inject(HttpClient);
-
+private api = environment.apiUrl;
   private apiUrl =
-    'http://100.31.238.92:8080/admin/products';
+    `${this.api}/admin/products`;
 
   getProducts() {
 
     return this.http.get<any[]>(
-      'http://100.31.238.92:8080/products'
+      `${this.api}/products`
     );
 
   }
