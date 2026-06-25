@@ -1,4 +1,4 @@
-FROM node:24-alpine:3.23
+FROM node:24-alpine3.23
 WORKDIR /opt/server
 COPY package*.json ./
 RUN npm install
