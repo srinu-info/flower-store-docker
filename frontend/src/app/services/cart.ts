@@ -9,7 +9,7 @@ export class CartService {
   private http = inject(HttpClient);
 
   private apiUrl =
-    'http://localhost:8080/cart';
+    'http://100.31.238.92/cart';
 
   addToCart(payload:any){
 

@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://174.129.112.40:8080'
+  apiUrl: 'http://100.31.238.92:8080'
 };
 
 // for i in api-gateway auth-service product-service cart-service order-service feedback-service frontend

@@ -14,25 +14,6 @@ public class SecurityConfig {
     public SecurityWebFilterChain securityWebFilterChain(
             ServerHttpSecurity http) {
 
-//    	return http
-//                .csrf(ServerHttpSecurity.CsrfSpec::disable)
-//
-//                .authorizeExchange(exchange -> exchange
-//
-//                        .pathMatchers("/auth/**").permitAll()
-//
-//                        .pathMatchers("/products/**").permitAll()
-//
-//                        .pathMatchers("/admin/**").authenticated()
-//
-//                        .pathMatchers("/cart/**").authenticated()
-//
-//                        .pathMatchers("/orders/**").authenticated()
-//
-//                        .pathMatchers("/feedback/**").authenticated()
-//
-//                        .anyExchange().authenticated())
-//                .build();
     	return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchange -> exchange

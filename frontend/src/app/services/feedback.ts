@@ -9,7 +9,7 @@ export class FeedbackService {
   private http = inject(HttpClient);
 
   private apiUrl =
-    'http://localhost:8080/feedback';
+    'http://100.31.238.92/feedback';
 
   submitFeedback(payload:any){
 
