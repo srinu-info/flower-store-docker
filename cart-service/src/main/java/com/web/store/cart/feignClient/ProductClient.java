@@ -11,7 +11,7 @@ import com.web.store.cart.dto.ProductResponse;
 
 @FeignClient(
         name = "product-service",
-        url = "http://localhost:8082")
+        url = "http://product-service:8082")
 public interface ProductClient {
 
     @GetMapping("/products/{id}")
