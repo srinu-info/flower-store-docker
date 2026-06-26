@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,9 @@ import { Product } from '../models/product';
 export class ProductService {
 
   private http = inject(HttpClient);
+    private api = environment.apiUrl;
 
-  private apiUrl = 'http://100.31.238.92:8080/products';
+  private apiUrl = `${this.api}/products`;
 
   getAllProducts(): Observable<Product[]> {
 
