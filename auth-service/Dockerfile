@@ -7,7 +7,7 @@
 # RUN mv /opt/server/target/auth-service-0.0.1-SNAPSHOT.jar auth.jar
 # CMD ["java","-jar","auth.jar"]
 
-FROM maven:3.9.16-eclipse-temurin-17 AS AS builder
+FROM maven:3.9-eclipse-temurin-17 AS AS builder
 WORKDIR /opt/server
 COPY pom.xml .
 COPY src /opt/server/src
