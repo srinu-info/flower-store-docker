@@ -16,6 +16,6 @@ RUN mvn clean package
 
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /opt/server
-EXPOSE 8081
+EXPOSE 8083
 COPY --from=builder /opt/server/target/cart-service-0.0.1-SNAPSHOT.jar cart.jar
 CMD ["java","-jar","cart.jar"]

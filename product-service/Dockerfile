@@ -16,7 +16,7 @@ RUN mvn clean package
 FROM eclipse-temurin:17-jre-alpine
 RUN addgroup -S svdvps && adduser -S srinu -G svdvps
 WORKDIR /opt/server
-EXPOSE 8081
+EXPOSE 8082
 USER srinu
 COPY --from=builder /opt/server/target/product-service-0.0.1-SNAPSHOT.jar product.jar
 CMD ["java","-jar","product.jar"]

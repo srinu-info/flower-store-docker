@@ -15,6 +15,6 @@ RUN mvn clean package
 
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /opt/server
-EXPOSE 8081
+EXPOSE 8085
 COPY --from=builder /opt/server/target/order-service-0.0.1-SNAPSHOT.jar order.jar
 CMD ["java","-jar","order.jar"]

@@ -15,6 +15,6 @@ RUN mvn clean package
 
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /opt/server
-EXPOSE 8081
+EXPOSE 8080
 COPY --from=builder /opt/server/target/api-gateway-0.0.1-SNAPSHOT.jar api-gateway.jar
 CMD ["java","-jar","api-gateway.jar"]
